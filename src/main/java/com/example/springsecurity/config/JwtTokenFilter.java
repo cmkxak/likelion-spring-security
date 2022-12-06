@@ -1,7 +1,8 @@
-package com.example.springsecurity.utils;
+package com.example.springsecurity.config;
 
 import com.example.springsecurity.domain.User;
 import com.example.springsecurity.service.UserService;
+import com.example.springsecurity.utils.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
