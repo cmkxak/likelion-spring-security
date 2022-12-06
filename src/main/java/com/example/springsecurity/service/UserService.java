@@ -21,7 +21,7 @@ public class UserService {
 
     @Value("${jwt.token.secret}")
     private String secretKey;
-    private long expireTimeMs = 100 * 60 * 60;
+    private final long expireTimeMs = 100 * 60 * 60;
 
     public UserJoinResponse join(UserJoinRequest userJoinRequest) {
         //중복된 유저인지 검증
@@ -46,5 +46,10 @@ public class UserService {
             throw new UserNotFoundException(ErrorCode.INVALID_ID_PASSWORD, "비밀번호가 잘못되었습니다.");
         }
         return JwtTokenUtil.createToken(userLoginRequest.getUserName(), secretKey, expireTimeMs);
+    }
+
+    public User getUserByUserName(String userName){
+        return userRepository.findByUserName(userName).orElseThrow(() ->
+                new UserNotFoundException(ErrorCode.USER_NOT_FOUND, ""));
     }
 }
