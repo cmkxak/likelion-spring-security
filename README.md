@@ -1,4 +1,4 @@
-# likelion-spring-security
+# spring-security-example
 
 ## 프로젝트 소개
 이 프로젝트는 Spring Security를 활용하여 Authentication을 구현한 예제 프로젝트입니다.
